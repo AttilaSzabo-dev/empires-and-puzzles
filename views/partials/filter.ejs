@@ -1,0 +1,70 @@
+<div class="col col-lg-4 col-md-12 col-sm-12 col-12">
+    <div class="md-form active-cyan active-cyan-2 mb-3">
+        <input class="form-control" type="text" placeholder="Search for Heroes" aria-label="Search">
+    </div>
+</div>
+<div class="col col-lg-2 col-md-12 col-sm-12 col-12 ml-lg-5 pt-2">
+    <label class="control control-checkbox">
+        ⭐⭐⭐
+        <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+</div>
+<div class="col col-lg-2 col-md-12 col-sm-12 col-12 ml-lg-4 pt-2">
+    <label class="control control-checkbox">
+        ⭐⭐⭐⭐
+        <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+</div>
+<div class="col col-lg-2 col-md-12 col-sm-12 col-12 ml-lg-4 pt-2">
+    <label class="control control-checkbox">
+        ⭐⭐⭐⭐⭐
+        <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+</div>
+
+<div class="col col-lg-2 col-md-6 col-sm-6 col-6 ml-lg-4 pt-2">
+    <label class="control control-checkbox fontFamilyBold font-color-nature">
+        Nature
+        <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+</div>
+<div class="col col-lg-2 col-md-6 col-sm-6 col-6 ml-lg-4 pt-2">
+    <label class="control control-checkbox fontFamilyBold font-color-fire">
+        Fire
+        <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+</div>
+<div class="col col-lg-2 col-md-6 col-sm-6 col-6 ml-lg-4 pt-2">
+    <label class="control control-checkbox fontFamilyBold font-color-ice">
+        Ice
+        <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+</div>
+<div class="col col-lg-2 col-md-6 col-sm-6 col-6 ml-lg-4 pt-2">
+    <label class="control control-checkbox fontFamilyBold font-color-dark">
+        Dark
+        <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+</div>
+<div class="col col-lg-2 col-md-12 col-sm-12 col-12 ml-lg-4 pt-2">
+    <label class="control control-checkbox fontFamilyBold font-color-holy">
+        Holy
+        <input type="checkbox" />
+        <div class="control_indicator"></div>
+    </label>
+</div>
+
+<% if (checkGet) {%>
+    <div class="col col-lg-4 mt-lg-3">
+        <form action="/add_edit" method="get">
+            <button class="btn btn-lg btn-warning btn-block buttonFont" type="submit">ADD/EDIT Heroes</button>
+        </form>
+    </div>
+<% } %>
