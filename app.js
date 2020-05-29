@@ -9,7 +9,7 @@ app.use(express.static('public')); //static files location
 app.set("view engine", "ejs"); // ejs files location
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://localhost:27017/empiresPuzzlesDB", {
+mongoose.connect("mongodb+srv://admin-bruce:Q838_cs3Xf.iaGa@brucecluster-v5uof.mongodb.net/empiresPuzzlesDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -35,7 +35,7 @@ const heroe = new Heroe ({
     ascend: 1
 });
 
-heroe.save();
+/* heroe.save(); */
 
 
 
