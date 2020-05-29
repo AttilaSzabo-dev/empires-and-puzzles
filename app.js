@@ -20,22 +20,26 @@ const myHeroesNav = "My Heroes";
 const heroeSchema = {
     name: String,
     picUrl: String,
-    stars: Number,
+    starsUrl: String,
     lvl: Number,
-    ascend: Number
+    ascend: Number,
+    class: String,
+    star: String
 };
 
 const Heroe = mongoose.model("Heroe", heroeSchema);
 
 const heroe = new Heroe ({
-    name: "Azar",
-    picUrl: "images/1_fire/three_star/azar.jpg",
-    stars: 3,
+    name: "Squire Wabbit",
+    picUrl: "images/1_fire/three_star/squire_wabbit.jpg",
+    starsUrl: "images/style/star3.png",
     lvl: 1,
-    ascend: 1
+    ascend: 1,
+    class: "fire",
+    star: "s3"
 });
 
-/* heroe.save(); */
+//heroe.save();
 
 
 
@@ -55,12 +59,24 @@ app.post("/", function(req, res) {
 
 // Main page
 app.get("/main", function(req, res) {
-    res.render("main", {navButtonName: myHeroesNav, checkGet: true}); // Starting page route sending html
+
+    Heroe.find({}, function(err, heroes) {
+
+        if (!err) {
+            res.render("main", {navButtonName: myHeroesNav, checkGet: true, heroes: heroes}); // Starting page route sending html
+        }
+    })
 })
 
 // Add/Edit heroe page
 app.get("/add_edit", function(req, res) {
-    res.render("add_edit", {navButtonName: addEditNav, checkGet: false}); // Starting page route sending html
+
+    Heroe.find({}, function(err, heroes) {
+
+        if (!err) {
+            res.render("add_edit", {navButtonName: addEditNav, checkGet: false, heroes: heroes}); // Starting page route sending html
+        }
+    })
 })
 
 // Test jQuery

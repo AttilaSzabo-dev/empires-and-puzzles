@@ -11,22 +11,24 @@
                     </div>
                     <div class="text-center overflow p-1">
                         <div class="row justify-content-around">
-                            <!-- ejs loop -->
-                            <div class="col col-lg-4 col-md-4 col-sm-4 col-4 avHeroContHeight m-1 ml-3 mt-2 boxShadowBorder">
+                            
+                            <%  heroes.forEach(function(heroe){ %>
+                            <div class="col col-lg-4 col-md-4 col-sm-4 col-4 avHeroContHeight m-1 ml-3 mt-2 boxShadowBorder <%=heroe.class%> <%=heroe.star%>">
                                 <div class="col col-lg-9 col-md-10 col-sm-10 col-10 avHeroPicCont">
-                                    <div class="avHeroName">Azar</div>
-                                    <img src="images/1_fire/three_star/azar.jpg">
+                                    <div class="avHeroName"><%=heroe.name%></div>
+                                    <img src="<%=heroe.picUrl%>">
                                 </div>
                                 <div class="col col-lg-3 col-md-2 col-sm-2 col-2 avHeroStatCont">
                                     <div class="avHeroLvl starContHeight">
-                                        <img src="images/style/star3.png" alt="">
+                                        <img src="<%=heroe.starsUrl%>" alt="">
                                     </div>
-                                    <div class="avHeroLvl lvlContHeight pt-1">12</div>
+                                    <div class="avHeroLvl lvlContHeight pt-1"><%=heroe.lvl%></div>
                                     <div class="avHeroLvl ascContHeight">
-                                        <img src="images/style/asc1.png">
+                                        <img src="images/style/asc<%=heroe.ascend%>.png">
                                     </div>
                                 </div>
                             </div>
+                            <% }) %>
 
                         </div>
                     </div>
@@ -37,6 +39,7 @@
                     </div>
                     <div class="text-center overflow p-1">
                         <div class="row justify-content-around">
+
                             <!-- ejs loop -->
                             <div class="col col-lg-4 col-md-4 col-sm-4 col-4 avHeroContHeight m-1 ml-3 mt-2 boxShadowBorder">
                                 <div class="col col-lg-9 col-md-10 col-sm-10 col-10 avHeroPicCont">
@@ -76,16 +79,24 @@
                         <div class="col-12 modHeroStatCont mt-2 pt-3">
                             <div class="row ascSelectWidth modHeroAscensionCont m-auto">
                                 <div class="col col-lg-3">
-                                    <div class="ascPicSize ascUrl1 boxShadow m-auto"></div>
+                                    <div class="ascPicSize boxShadow m-auto">
+                                        <img src="images/style/asc1.png">
+                                    </div>
                                 </div>
                                 <div class="col col-lg-3 ">
-                                    <div class="ascPicSize ascUrl2 boxShadow m-auto"></div>
+                                    <div class="ascPicSize boxShadow m-auto">
+                                        <img src="images/style/asc2.png">
+                                    </div>
                                 </div>
                                 <div class="col col-lg-3 ">
-                                    <div class="ascPicSize ascUrl3 boxShadow m-auto"></div>
+                                    <div class="ascPicSize boxShadow m-auto">
+                                        <img src="images/style/asc3.png">
+                                    </div>
                                 </div>
                                 <div class="col col-lg-3 ">
-                                    <div class="ascPicSize ascUrl4 boxShadow m-auto"></div>
+                                    <div class="ascPicSize boxShadow m-auto">
+                                        <img src="images/style/asc4.png">
+                                    </div>
                                 </div>
                             </div>
                         </div>

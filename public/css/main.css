@@ -129,26 +129,18 @@ body {
 .ascPicSize {
   height: 4rem;
   width: 3rem;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding-left: 2.5px;
   border-top: 0.3px solid rgb(80, 164, 219);
+  border-left: 0.3px solid rgb(80, 164, 219);
   border-radius: 10%;
 }
 .ascPicSize:hover {
   border-top: 0.3px solid #ffc107;
+  border-left: 0.3px solid #ffc107;
 }
-.ascUrl1 {
-  background-image: url("../images/style/asc1.png");
-}
-.ascUrl2 {
-  background-image: url("../images/style/asc2.png");
-}
-.ascUrl3 {
-  background-image: url("../images/style/asc3.png");
-}
-.ascUrl4 {
-  background-image: url("../images/style/asc4.png");
+.ascPicSize img {
+  height: 3.7rem;
+  width: 2.7rem;
 }
 
 .avHeroContHeight {
