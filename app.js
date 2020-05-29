@@ -1,7 +1,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const mongoose = require("mongoose");
 
 app = express();
 
@@ -9,27 +9,35 @@ app.use(express.static('public')); //static files location
 app.set("view engine", "ejs"); // ejs files location
 app.use(bodyParser.urlencoded({ extended: true }));
 
+mongoose.connect("mongodb://localhost:27017/empiresPuzzlesDB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 const addEditNav = "Add/Edit My Heroes";
 const myHeroesNav = "My Heroes";
 
-const allHeroes = [
-    {
-        heroeName: "Azar",
-        heroePicPath: "images/1_red/three_star/azar.jpg",
-    },
-    {
-        heroeName: "Bauchan",
-        heroePicPath: "images/1_red/three_star/bauchan.jpg",
-    },
-    {
-        heroeName: "Ei Dunn",
-        heroePicPath: "images/1_red/three_star/ei_dunn.jpg",
-    },
-    {
-        heroeName: "Hawkmoon",
-        heroePicPath: "images/1_red/three_star/hawkmoon.jpg",
-    },
-];
+const heroeSchema = {
+    name: String,
+    picUrl: String,
+    stars: Number,
+    lvl: Number,
+    ascend: Number
+};
+
+const Heroe = mongoose.model("Heroe", heroeSchema);
+
+const heroe = new Heroe ({
+    name: "Azar",
+    picUrl: "images/1_fire/three_star/azar.jpg",
+    stars: 3,
+    lvl: 1,
+    ascend: 1
+});
+
+heroe.save();
+
+
 
 // Login page
 app.get("/", function(req, res) {
@@ -50,16 +58,18 @@ app.get("/main", function(req, res) {
     res.render("main", {navButtonName: myHeroesNav, checkGet: true}); // Starting page route sending html
 })
 
-// Add heroe page
+// Add/Edit heroe page
 app.get("/add_edit", function(req, res) {
     res.render("add_edit", {navButtonName: addEditNav, checkGet: false}); // Starting page route sending html
 })
 
+// Test jQuery
 app.post("/test", function (req, res) {
-    res.send("Válasz");
-    console.log(req.body.name);
+   /*  res.send("Válasz");
+    console.log(req.body.name); */
 })
 
+//Listen
 app.listen(3000, function () {
     console.log("Server is running on port 3000.");
 })

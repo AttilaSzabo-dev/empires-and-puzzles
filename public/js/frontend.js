@@ -10,4 +10,4 @@ $(".nav-item").click(function() {
     alert( "Data Loaded: " + data );
 }); */
 
-var posting = $.post( "/test", {name: "Attila"} );
+/* var posting = $.post( "/test", {name: "Attila"} ); */
