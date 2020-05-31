@@ -30,13 +30,13 @@ const heroeSchema = {
 const Heroe = mongoose.model("Heroe", heroeSchema);
 
 const heroe = new Heroe ({
-    name: "Squire Wabbit",
-    picUrl: "images/1_fire/three_star/squire_wabbit.jpg",
-    starsUrl: "images/style/star3.png",
+    name: "Vivica(C)",
+    picUrl: "images/5_holy/costume/vivica_c.jpg",
+    starsUrl: "images/style/star5.png",
     lvl: 1,
     ascend: 1,
-    class: "fire",
-    star: "s3"
+    class: "holy",
+    star: "s5"
 });
 
 //heroe.save();
