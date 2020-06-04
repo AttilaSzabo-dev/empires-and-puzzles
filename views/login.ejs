@@ -1,20 +1,5 @@
-<!doctype html>
-<html lang="en">
+<%- include("partials/log_reg_head"); -%>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Alliance Tracker - Login Page</title>
-  <link rel="shortcut icon" href="images/style/favicon.png" type="image/x-icon">
-
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/sign_in.css" rel="stylesheet">
-</head>
-
-<body class="text-center">
   <form action="/" method="POST" class="form-signin">
     <img id="login-logo" class="mb-4" src="images/style/logo.png" alt="">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -23,6 +8,7 @@
 
     <input type="password" name="passW" class="form-control" placeholder="Password" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-warning btn-block" type="button" onclick="window.location.href='/register'">Create New Account</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020 Attila Szabó</p>
   </form>
 </body>

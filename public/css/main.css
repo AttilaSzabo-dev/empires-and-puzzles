@@ -203,6 +203,15 @@ body {
   border-top: 0.3px solid #ffc107;
   border-left: 0.3px solid #ffc107;
 }
+
+.userN {
+  font-family: montserrat-bold;
+  font-size: 1.25rem;
+}
+.allianceUserName {
+  color: white;
+}
+
 /* Checkbox CSS Start */
 
 .control {

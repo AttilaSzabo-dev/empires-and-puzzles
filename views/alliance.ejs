@@ -1,0 +1,42 @@
+<%- include("partials/head"); -%>
+
+<div class="container pt-5">
+    <div class="row">
+
+        <%  alliance.forEach(function(user){ %>
+        <div class="myHeroeContainer col col-lg-12 m-4 boxShadowBorder">
+            <h4 class="allianceUserName mt-1 mb-2 text-center"><%=user.name%></h4>
+            <div class="row justify-content-around text-center whiteColor">
+
+                <% if(user.myHeroes.length > 0) { %>
+                <%  user.myHeroes.forEach(function(heroe){ %>
+                    <div class="col col-lg-1 col-md-4 col-sm-4 col-4 avHeroContHeight m-1 ml-3 mt-2 boxShadowBorder <%=heroe.class%> <%=heroe.star%>">
+                        <div class="col col-lg-9 col-md-10 col-sm-10 col-10 avHeroPicCont">
+                            <div class="avHeroName"><%=heroe.name%></div>
+                            <img src="<%=heroe.picUrl%>">
+                        </div>
+                        <div class="col col-lg-3 col-md-2 col-sm-2 col-2 avHeroStatCont">
+                            <div class="avHeroLvl starContHeight">
+                                <img src="<%=heroe.starsUrl%>" alt="">
+                            </div>
+                            <div class="avHeroLvl lvlContHeight pt-1"><%=heroe.lvl%></div>
+                            <div class="avHeroLvl ascContHeight">
+                                <img src="<%=heroe.ascend%>">
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+                <% } else { %>
+                    <div class="text-center p-5 mt-5">
+                        <h2>You don't have any Heroes yet!</h2>
+                    </div>
+                <% } %>
+               
+            </div>
+            <div class="backgroundOpacity"></div>
+        </div>
+        <% }) %>
+
+    </div>
+</div>
+<%- include("partials/foot"); -%>

@@ -62,3 +62,6 @@ body {
 h1, button {
   color: #E8A12E !important;
 }
+.btn-warning {
+  color: black !important;
+}

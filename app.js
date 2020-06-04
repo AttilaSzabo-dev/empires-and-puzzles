@@ -17,7 +17,7 @@ mongoose.connect("mongodb+srv://admin-bruce:Q838_cs3Xf.iaGa@brucecluster-v5uof.m
 
 const addEditNav = "Add/Edit My Heroes";
 const myHeroesNav = "My Heroes";
-
+let currentUser = "";
 
 
 const heroeSchema = {
@@ -31,7 +31,15 @@ const heroeSchema = {
     id: String
 };
 
+const userSchema = {
+    name: String,
+    password: String,
+    myHeroes: []
+};
+
 const Heroe = mongoose.model("Heroe", heroeSchema);
+
+const User = mongoose.model("User", userSchema);
 
 /* const heroe = new Heroe ({
     name: "Vivica(C)",
@@ -46,26 +54,6 @@ const Heroe = mongoose.model("Heroe", heroeSchema);
 //heroe.save();
 
 
-const userSchema = {
-    name: String,
-    password: String,
-    myHeroes: []
-};
-
-const User = mongoose.model("User", userSchema);
-
-
-const user = new User ({
-    name: "test",
-    password: "test",
-    myHeroes: []
-});
-
-
-
- 
-//user.save();
-
 // Update one
 /* Heroe.updateOne({ name: "Bauchan" }, { ascend: "images/style/asc1.png"}, function(err, res) {
     console.log(res.n);
@@ -79,12 +67,9 @@ const user = new User ({
 
 
 
-let currentUser = "";
-let currentHeroe = "";
-
 // Login page
 app.get("/", function(req, res) {
-    res.sendFile(__dirname + "/sign_in.html"); // Starting page route sending html
+    res.render("login");
 })
 
 app.post("/", function(req, res) {
@@ -99,7 +84,7 @@ app.post("/", function(req, res) {
         } else {
             if (foundUser) {
                 if (foundUser.password === passW) {
-                    res.render("main", {navButtonName: myHeroesNav, checkGet: true, myHeroes: foundUser.myHeroes});
+                    res.render("main", {navButtonName: myHeroesNav, checkGet: true, activeUser: userName, myHeroes: foundUser.myHeroes});
                 } else {
                     console.log("Incorrect password");
                 }
@@ -110,13 +95,34 @@ app.post("/", function(req, res) {
     });
 })
 
+// Register page
+app.get("/register", function(req, res) {
+    res.render("register");
+})
+
+app.post("/register", function(req, res) {
+    const userName = req.body.userName;
+    const passW = req.body.passW;
+
+    const user = new User ({
+        name: userName,
+        password: passW,
+        myHeroes: []
+    });
+    
+    user.save();
+
+    res.redirect("/");
+})
+
+
 // Main page
  app.get("/main", function(req, res) {
 
     User.findOne({name: currentUser}, function(err, foundUser) {
 
         if (!err) {
-            res.render("main", {navButtonName: myHeroesNav, checkGet: true, myHeroes: foundUser.myHeroes});
+            res.render("main", {navButtonName: myHeroesNav, checkGet: true, activeUser: currentUser, myHeroes: foundUser.myHeroes});
         }
     })
 }) 
@@ -129,8 +135,18 @@ app.get("/add_edit", function(req, res) {
         if (!err) {
             
             User.findOne({name: currentUser}, function (err, foundUser) {
-                res.render("add_edit", {navButtonName: addEditNav, checkGet: false, allHeroes: heroes, myHeroes: foundUser.myHeroes}); // Starting page route sending html
+                res.render("add_edit", {navButtonName: addEditNav, checkGet: false, activeUser: currentUser, allHeroes: heroes, myHeroes: foundUser.myHeroes}); // Starting page route sending html
             });
+        }
+    })
+})
+
+// Alliance page
+app.get("/alliance", function(req, res) {
+    User.find({}, function(err, foundUser) {
+        
+        if (!err) {
+            res.render("alliance", {navButtonName: myHeroesNav, checkGet: true, activeUser: currentUser, alliance: foundUser});
         }
     })
 })
