@@ -10,21 +10,21 @@
                         <h3>Available Heroes</h3>
                     </div>
                     <div class="text-center overflow p-1">
-                        <div class="row justify-content-around">
+                        <div class="row justify-content-around selectHeroe">
                             
-                            <%  heroes.forEach(function(heroe){ %>
+                            <%  allHeroes.forEach(function(heroe){ %>
                             <div class="col col-lg-4 col-md-4 col-sm-4 col-4 avHeroContHeight m-1 ml-3 mt-2 boxShadowBorder <%=heroe.class%> <%=heroe.star%>">
                                 <div class="col col-lg-9 col-md-10 col-sm-10 col-10 avHeroPicCont">
                                     <div class="avHeroName"><%=heroe.name%></div>
-                                    <img src="<%=heroe.picUrl%>">
+                                    <img class="picUrl" src="<%=heroe.picUrl%>">
                                 </div>
                                 <div class="col col-lg-3 col-md-2 col-sm-2 col-2 avHeroStatCont">
                                     <div class="avHeroLvl starContHeight">
                                         <img src="<%=heroe.starsUrl%>" alt="">
                                     </div>
-                                    <div class="avHeroLvl lvlContHeight pt-1"><%=heroe.lvl%></div>
+                                    <div class="lvl avHeroLvl lvlContHeight pt-1"><%=heroe.lvl%></div>
                                     <div class="avHeroLvl ascContHeight">
-                                        <img src="images/style/asc<%=heroe.ascend%>.png">
+                                        <img class="ascUrl" src="<%=heroe.ascend%>">
                                     </div>
                                 </div>
                             </div>
@@ -38,24 +38,31 @@
                         <h3>My Heroes</h3>
                     </div>
                     <div class="text-center overflow p-1">
-                        <div class="row justify-content-around">
+                        <div class="row justify-content-center selectHeroe">
 
-                            <!-- ejs loop -->
-                            <div class="col col-lg-4 col-md-4 col-sm-4 col-4 avHeroContHeight m-1 ml-3 mt-2 boxShadowBorder">
+                            <% if(myHeroes.length > 0) { %>
+                            <%  myHeroes.forEach(function(heroe){ %>
+                            <div id="<%=heroe.id%>" class="col col-lg-4 col-md-4 col-sm-4 col-4 avHeroContHeight m-1 ml-3 mt-2 boxShadowBorder selectMyHeroe <%=heroe.class%> <%=heroe.star%>">
                                 <div class="col col-lg-9 col-md-10 col-sm-10 col-10 avHeroPicCont">
-                                    <div class="avHeroName">Azar</div>
-                                    <img src="images/1_fire/three_star/azar.jpg">
+                                    <div class="avHeroName"><%=heroe.name%></div>
+                                    <img class="picUrl" src="<%=heroe.picUrl%>">
                                 </div>
                                 <div class="col col-lg-3 col-md-2 col-sm-2 col-2 avHeroStatCont">
                                     <div class="avHeroLvl starContHeight">
-                                        <img src="images/style/star3.png" alt="">
+                                        <img src="<%=heroe.starsUrl%>" alt="">
                                     </div>
-                                    <div class="avHeroLvl lvlContHeight pt-1">12</div>
+                                    <div class="lvl avHeroLvl lvlContHeight pt-1"><%=heroe.lvl%></div>
                                     <div class="avHeroLvl ascContHeight">
-                                        <img src="images/style/asc1.png">
+                                        <img class="ascUrl" src="<%=heroe.ascend%>">
                                     </div>
                                 </div>
                             </div>
+                            <% }) %>
+                            <% } else { %>
+                            <div class="text-center p-5 mt-5">
+                                <h2>You don't have any Heroes yet!</h2>
+                            </div>
+                            <% } %>
 
                         </div>
                     </div>
@@ -67,12 +74,12 @@
                     <div class="row">
                         <div class="col-12 modHeroStatCont mt-3 pt-2 pb-3">
                             <div class="modHeroPicCont boxShadow m-auto">
-                                <img src="images/1_fire/three_star/azar.jpg">
+                                <img class="targetUrl" src="">
                             </div>
                         </div>
                         <div class="col-12 modHeroStatCont mt-3 pt-3">
                             <div class="inputSelectButtonWidth md-form active-cyan active-cyan-2 m-auto boxShadow">
-                                <input class="form-control text-center" type="text" placeholder="LVL Number"
+                                <input class="form-control text-center targetLvl" type="text" placeholder="LVL Number"
                                     aria-label="Search">
                             </div>
                         </div>
@@ -102,7 +109,7 @@
                         </div>
                         <div class="col-12 modHeroStatCont mt-4 pt-4">
                             <div class="inputSelectButtonWidth boxShadow m-auto">
-                                <button class="btn btn-lg btn-warning btn-block buttonFont" type="submit">Save Changes</button>
+                                <button class="collectInfo btn btn-lg btn-warning btn-block buttonFont" type="submit">Save Changes</button>
                             </div>
                         </div>
                     </div>

@@ -21,10 +21,61 @@ $("input:checkbox").on("click", function() {
     if (check.length === 0) {
         $(".avHeroContHeight").show();
     }
- });
+});
 
-/* $.post("/test", function( data ) {
-    alert( "Data Loaded: " + data );
-}); */
+let url;
+let heroId;
+let whichHeroe = false;
 
-/* var posting = $.post( "/test", {name: "Attila"} ); */
+
+$(".selectHeroe > div").on("click", function() {
+    $(".selectHeroe").find(".selectedElement").each(function () {
+        $(this).removeClass("selectedElement");
+    });
+    $(this).addClass("selectedElement");
+
+    let checkHeroeCont = $(this).hasClass("selectMyHeroe");
+    
+    if (checkHeroeCont) whichHeroe = true;
+    else whichHeroe = false;
+
+    heroId = $(this).attr("id");
+    
+    url = $(this).find(".picUrl").attr("src"); //collect
+    $(".targetUrl").attr("src", url);
+
+    let lvl = $(this).find(".lvl").text();
+    $(".targetLvl").val(lvl);
+
+    $(".ascSelectWidth > div").find(".selectedElement").each(function () {
+        $(this).removeClass("selectedElement");
+    });
+
+    let asc = $(this).find(".ascUrl").attr("src");
+    $(".ascSelectWidth").find("img[src='" + asc + "']").parent().addClass("selectedElement");
+
+});
+
+$(".ascSelectWidth > div > div").on("click", function() {
+    $(".ascSelectWidth > div").find(".selectedElement").each(function () {
+        $(this).removeClass("selectedElement");
+    });
+    $(this).addClass("selectedElement");
+});
+
+$(".collectInfo").on("click", function() {
+    let lvl = $(".targetLvl").val();
+
+    let src = $(".ascSelectWidth").find(".selectedElement > img").attr("src");
+    
+
+    if (url === undefined || url === null) {
+        alert("No hero is selected!");
+    }
+    else {
+        $.post( "/saveHero", {url: url, lvl: lvl, src: src, divider: whichHeroe, actualId: heroId} );
+        location.reload();
+        whichHeroe = false;
+    }
+    
+});

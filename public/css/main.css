@@ -198,6 +198,11 @@ body {
     font-size: 0.5rem;
   }
 }
+
+.selectedElement { 
+  border-top: 0.3px solid #ffc107;
+  border-left: 0.3px solid #ffc107;
+}
 /* Checkbox CSS Start */
 
 .control {

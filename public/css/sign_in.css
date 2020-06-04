@@ -2,6 +2,10 @@
   font-family: passion-reg;
   src: url(../images/fonts/PassionOne-Regular.ttf);
 }
+@font-face {
+  font-family: montserrat-reg;
+  src: url(../images/fonts/Montserrat-Regular.ttf);
+}
 
 html,
 body {
@@ -19,8 +23,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: passion-reg;
-  font-size: 1.5rem;
+  font-family: montserrat-reg;
+  font-size: 1.25rem;
 }
 
 .form-signin {

@@ -5,7 +5,8 @@
         <div class="myHeroeContainer col col-lg-12 boxShadowBorder">
             <div class="row justify-content-around text-center whiteColor">
 
-                <%  heroes.forEach(function(heroe){ %>
+                <% if(myHeroes.length > 0) { %>
+                <%  myHeroes.forEach(function(heroe){ %>
                 <div class="col col-lg-1 col-md-4 col-sm-4 col-4 avHeroContHeight m-1 ml-3 mt-2 boxShadowBorder <%=heroe.class%> <%=heroe.star%>">
                     <div class="col col-lg-9 col-md-10 col-sm-10 col-10 avHeroPicCont">
                         <div class="avHeroName"><%=heroe.name%></div>
@@ -17,17 +18,21 @@
                         </div>
                         <div class="avHeroLvl lvlContHeight pt-1"><%=heroe.lvl%></div>
                         <div class="avHeroLvl ascContHeight">
-                            <img src="images/style/asc<%=heroe.ascend%>.png">
+                            <img src="<%=heroe.ascend%>">
                         </div>
                     </div>
                 </div>
                 <% }) %>
-
+            <% } else { %>
+                <div class="text-center p-5 mt-5">
+                    <h2>You don't have any Heroes yet!</h2>
+                </div>
+            <% } %>
             </div>
             <div class="backgroundOpacity"></div>
         </div>
     </div>
-    <div class="myHeroeFilter row justify-content-center boxShadowBorder">
+    <div class="myHeroeFilter row justify-content-center boxShadowBorder mb-5">
 
         <%- include("partials/filter"); -%>
 
