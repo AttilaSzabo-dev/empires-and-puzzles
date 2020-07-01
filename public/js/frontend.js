@@ -1,9 +1,9 @@
-$(".nav-item").on("click", function () {
+/* $(".nav-item").on("click", function () {
     $(".navbar").find(".nav-item").each(function () {
         $(this).removeClass("active");
     });
     $(this).addClass("active");
-})
+}) */
 
 $("#filterInput").on("keyup", function () {
     let value = $(this).val().toLowerCase();

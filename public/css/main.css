@@ -56,17 +56,32 @@ body {
 .font-color-nature {
   color: rgb(16, 189, 16);
 }
+.nature {
+  box-shadow: 8px 8px 5px 0px rgba(16, 189, 16, 0.75) !important;
+}
 .font-color-fire {
   color: rgb(223, 9, 9);
+}
+.fire {
+  box-shadow: 8px 8px 5px 0px rgba(223, 9, 9, 0.75) !important;
 }
 .font-color-ice {
   color: rgb(40, 8, 223);
 }
+.ice {
+  box-shadow: 8px 8px 5px 0px rgba(40, 8, 223, 0.75) !important;
+}
 .font-color-holy {
   color: rgb(248, 252, 31);
 }
+.holy {
+  box-shadow: 8px 8px 5px 0px rgba(248, 252, 31, 0.75) !important;
+}
 .font-color-dark {
   color: rgb(137, 12, 175);
+}
+.dark {
+  box-shadow: 8px 8px 5px 0px rgba(137, 12, 175, 0.75) !important;
 }
 
 .backgroundOpacity {
@@ -163,8 +178,8 @@ body {
 }
 .avHeroName {
   height: 18px;
-  font-family: montserrat-bold;
-  font-size: 0.7rem;
+  font-family: montserrat-reg;
+  font-size: 0.8rem;
 }
 .avHeroPicCont img {
   height: 38px;
