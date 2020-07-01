@@ -10,9 +10,10 @@ app.use(express.static('public')); //static files location
 app.set("view engine", "ejs"); // ejs files location
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb+srv://admin-bruce:Q838_cs3Xf.iaGa@brucecluster-v5uof.mongodb.net/empiresPuzzlesDB", {
+mongoose.connect("mongodb+srv://admin-bruce:Q838_cs3Xf.iaGa@brucecluster-v5uof.mongodb.net/empiresPuzzlesDB?retryWrites=true&w=majority", {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 
 const addEditNav = "Add/Edit My Heroes";
@@ -34,7 +35,7 @@ const heroeSchema = {
 const userSchema = {
     name: String,
     password: String,
-    myHeroes: []
+    myHeroes: Array
 };
 
 const Heroe = mongoose.model("Heroe", heroeSchema);
@@ -166,7 +167,7 @@ app.post("/saveHero", function (req, res) {
 
             if (!err) {
                 
-                User.update({ "name": currentUser, "myHeroes.id": actualHeroId}, {$set: {"myHeroes.$.lvl": heroLvl, "myHeroes.$.ascend": heroAsc}},function (err) {
+                User.updateOne({ "name": currentUser, "myHeroes.id": actualHeroId}, {$set: {"myHeroes.$.lvl": heroLvl, "myHeroes.$.ascend": heroAsc}},function (err) {
                     if (!err) {
                         console.log("update success!!");
                         
