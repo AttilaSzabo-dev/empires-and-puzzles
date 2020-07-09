@@ -1,0 +1,12 @@
+<%- include("partials/log_reg_head"); -%>
+
+  <form action="/" method="POST" class="form-signin">
+    <img id="login-logo" class="mb-4" src="images/style/logo.png" alt="">
+
+    <button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href='/login'">Sign in</button>
+    <button class="btn btn-lg btn-warning btn-block" type="button" onclick="window.location.href='/register'">Create New Account</button>
+    <%- include("partials/version"); -%>
+  </form>
+</body>
+
+</html>

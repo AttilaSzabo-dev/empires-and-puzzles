@@ -1,10 +1,10 @@
 <%- include("partials/head"); -%>
 
-<div class="container pt-5">
-    <div class="row">
+<div class="container-fluid pt-5">
+    <div class="row justify-content-center">
 
         <%  alliance.forEach(function(user){ %>
-        <div class="myHeroeContainer col col-lg-12 col-md-12 col-sm-12 col-12 m-lg-4 mb-2 boxShadowBorder">
+        <div class="myHeroeContainer col col-lg-11 col-md-11 col-sm-11 col-11 m-lg-4 mb-2 pb-3 pr-4 boxShadowBorder">
             <h4 class="allianceUserName mt-1 mb-2 text-center"><%=user.name%></h4>
             <div class="row justify-content-around text-center whiteColor">
 

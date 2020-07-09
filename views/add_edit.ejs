@@ -1,8 +1,8 @@
 <%- include("partials/head"); -%>
 
-<div class="container pt-5">
-    <div class="row">
-        <div class="myHeroeContainer col col-lg-12 boxShadowBorder">
+<div class="container-fluid pt-5">
+    <div class="row justify-content-center">
+        <div class="myHeroeContainer col-10 col-lg-11 boxShadowBorder">
 
             <div class="row p-2">
                 <div class="col col-lg-4 col-sm-12 col-12 h3Decoration heroContHeight">
@@ -118,14 +118,17 @@
 
             <div class="backgroundOpacity"></div>
         </div>
+
+        <div class="myHeroeFilter col-10 col-lg-11 mb-5 boxShadowBorder">
+            <div class="row justify-content-center">
+                <%- include("partials/filter"); -%>
+            </div>
+            
+            <div class="backgroundOpacity"></div>
+        </div>
     </div>
 
-    <div class="myHeroeFilter row justify-content-center boxShadowBorder">
-
-        <%- include("partials/filter"); -%>
-
-        <div class="backgroundOpacity"></div>
-    </div>
+   
 </div>
 
 <%- include("partials/foot"); -%>

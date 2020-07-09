@@ -65,3 +65,19 @@ h1, button {
 .btn-warning {
   color: black !important;
 }
+.update-log-wrap {
+  max-height: 10rem;
+  overflow: hidden;
+}
+.update_log {
+  max-height: 4rem;
+  width: 100%;
+  overflow-y: auto;
+  font-size: .7rem;
+}
+.font-size-1 {
+  font-size: 1rem;
+}
+.font-size-small {
+  font-size: .8rem;
+}
