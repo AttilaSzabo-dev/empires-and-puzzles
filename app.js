@@ -107,6 +107,8 @@ app.post("/register", function(req, res) {
     const userName = req.body.userName;
     const passW = req.body.passW;
 
+    currentUser = req.body.userName;
+
     const user = new User ({
         name: userName,
         password: passW,
